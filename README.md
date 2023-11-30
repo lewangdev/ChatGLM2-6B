@@ -241,6 +241,17 @@ python cli_demo.py
 
 程序会在命令行中进行交互式的对话，在命令行中输入指示并回车即可生成回复，输入 `clear` 可以清空对话历史，输入 `stop` 终止程序。
 
+### Docker
+
+```
+sudo docker build . -t lewangdev/chatglm2-6b
+
+python download_models.py
+
+sudo docker run --runtime=nvidia --gpus all -d -p 8000:8000 -v ./ChatGLM2-6B-Models:/src/ChatGLM2-6B/models lewangdev/chatglm2-6b /bin/bash -c \
+"cd /src/ChatGLM2-6B; python3 openai_api.py"
+```
+
 ### API 部署
 首先需要安装额外的依赖 `pip install fastapi uvicorn`，然后运行仓库中的 [api.py](api.py)：
 ```shell

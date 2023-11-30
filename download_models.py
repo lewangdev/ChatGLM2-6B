@@ -1,6 +1,6 @@
 import os
 os.system('apt install -y aria2c')
-os.system('mkdir -p ./ChatGLM2-6B/models')
+os.system('mkdir -p ./ChatGLM2-6B-Models')
 
 model_file_names = [
 	'MODEL_LICENSE',
@@ -23,5 +23,5 @@ model_file_names = [
 ]
 
 for fname in model_file_names:
-  cmd = f"aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/THUDM/chatglm2-6b/resolve/main/{fname} -d ./ChatGLM2-6B/models -o {fname}"
+  cmd = f"aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/THUDM/chatglm2-6b/resolve/main/{fname} -d ./ChatGLM2-6B-Models -o {fname}"
   os.system(cmd)
